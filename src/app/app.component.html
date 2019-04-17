@@ -1,0 +1,55 @@
+<div id="app-container" class="container">
+  <div class="d-flex">
+    <div class="col-md-3">
+      Paid Amount
+    </div>
+    <div class="col-md-3">
+      Number of People
+    </div>
+    <div class="col-md-2">
+      Fare
+    </div>
+    <div class="col-md-2">
+      Change
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+  <div id="log" *ngFor="let payment of payments">
+    <div class="d-flex">
+      <div class="col-md-3">
+        {{payment.paid_amount}}
+      </div>
+      <div class="col-md-3">
+        {{payment.num_of_people}}
+      </div>
+      <div class="col-md-3">
+        {{payment.fare}}
+      </div>
+      <div class="col-md-2">
+        {{payment.change}}
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success" (click)="giveChange(payment)">Change</button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group input-container">
+    <label for="paid">Paid Amount</label>
+    <input type="number" class="form-control" id="paid" #paidAmount><br>
+  </div>
+  <div class="form-group input-container">
+    <label for="num_of_people">Number of People</label>
+    <input type="number" class="form-control" id="num_of_people" #numOfPeople><br>
+  </div>
+  <div class="form-group input-container">
+    <label for="taxi_fare">Taxi Fare</label>
+    <input type="number" class="form-control" id="taxi_fare" #taxiFare><br>
+  </div>
+  <button class="btn btn-success" (click)="getChange()">Calculate</button>
+
+  <div #changeDisplay>
+   Change : {{change}}
+  </div>
+</div>
